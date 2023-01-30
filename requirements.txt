@@ -1,0 +1,4 @@
+pandas
+gspread
+google
+gspread_dataframe
