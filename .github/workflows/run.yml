@@ -17,6 +17,8 @@ jobs:
     - name: Run Main Script
       env:
         GCP_SECRET_JSON: ${{ secrets.GCP_SECRET_JSON }}
+        SP_SHEET_KEY: ${{ secrets.SP_SHEET_KEY }}
+        SP_SHEET_TAB_NAME: ${{ secrets.SP_SHEET_TAB_NAME}}
       run: |
         python main.py
     - name: CSV Commit
