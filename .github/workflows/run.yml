@@ -1,0 +1,28 @@
+name: write_Gspread_sheet
+
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.9
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Run Main Script
+      env:
+        GCP_SECRET_JSON: ${{ secrets.GCP_SECRET_JSON }}
+      run: |
+        python main.py
+    - name: CSV Commit
+      run:
+        git config --global user.email ${{ secrets.EMAIL }}
+        git config --global user.name ${{ secrets.NAME }}
+        git add .
+        git commit -m "Update GCP-Spread Sheet"
+        git push origin main
