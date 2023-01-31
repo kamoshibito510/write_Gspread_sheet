@@ -29,7 +29,7 @@ def get_gspread():
 def gcp_writer():
     date_today = datetime.today().timetuple()
     date = f'{date_today.tm_year}-{date_today.tm_mon}-{date_today.tm_mday}'
-    data_dict = {'Date': f'{date}', 'column1': 'リンゴ', 'column2': 'ゴリラ', 'column3': 'ラッパ', 'column4': 'パンダ'}
+    data_dict = {'Date': f'{date}', 'column1': 'ダンゴ', 'column2': 'ゴディバ', 'column3': 'バルス', 'column4': 'スバル'}
 
     ws = get_gspread()
     df = pd.DataFrame(ws.get_all_values()[1:], columns=ws.get_all_values()[0])

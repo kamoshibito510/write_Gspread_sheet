@@ -21,10 +21,3 @@ jobs:
         SP_SHEET_TAB_NAME: ${{ secrets.SP_SHEET_TAB_NAME}}
       run: |
         python main.py
-    - name: CSV Commit
-      run:
-        git config --global user.email ${{ secrets.EMAIL }}
-        git config --global user.name ${{ secrets.NAME }}
-        git add .
-        git commit -m "Update GCP-Spread Sheet"
-        git push origin main
